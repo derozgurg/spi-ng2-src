@@ -1,0 +1,27 @@
+{
+  "name": "spi-ng2",
+  "version": "0.1.0",
+  "description": "Koç University - SPI Angular 2 Library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/derozgurg/-spi-ng2.git"
+  },
+  "author": {
+    "name": "Ozgur Cimen",
+    "email": "derozgur@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/derozgurg/-spi-ng2.git/issues"
+  },
+  "module": "spi-ng2.js",
+  "typings": "spi-ng2.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
