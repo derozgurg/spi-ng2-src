@@ -7,14 +7,19 @@ import { CommonModule } from '@angular/common';
 import { SpiLoadingComponent } from  './spi-loading.component';
 import { SpiLoadingDirective } from './spi-loading.directive';
 import { SpiLoadingPipe } from './spi-loading.pipe';
-import { SpiLoadingService } from './spi-loading.service';
+import { SpiProcessingService } from './service/spi-processing.service';
 import { SpiSystemService } from './service/spi-system.service';
+import { SpiNotificationService } from './service/spi-notification.service';
+import { SpiClickOutsideDirective } from './directive/spi-clickoutside.pipe';
 
 export * from './spi-loading.component';
 export * from './spi-loading.directive';
 export * from './spi-loading.pipe';
 export * from './spi-loading.service';
 export * from './service/spi-system.service';
+export * from './service/spi-notification.service';
+export * from './service/spi-processing.service';
+export * from './directive/spi-clickoutside.pipe';
 
 @NgModule({
   imports: [
@@ -23,19 +28,21 @@ export * from './service/spi-system.service';
   declarations: [
     SpiLoadingComponent,
     SpiLoadingDirective,
-    SpiLoadingPipe
+    SpiLoadingPipe,
+    SpiClickOutsideDirective
   ],
   exports: [
     SpiLoadingComponent,
     SpiLoadingDirective,
-    SpiLoadingPipe
+    SpiLoadingPipe,
+    SpiClickOutsideDirective
   ]
 })
 export class SpiModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SpiModule,
-      providers: [SpiLoadingService, SpiSystemService]
+      providers: [SpiProcessingService, SpiSystemService,SpiNotificationService]
     };
   }
 }

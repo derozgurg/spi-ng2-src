@@ -13,7 +13,7 @@ const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
 const tmpFolder = path.join(rootFolder, '.tmp');
 const buildFolder = path.join(rootFolder, 'build');
-const distFolder = path.join(rootFolder, '../frontend/node_modules/@spi-ng2');
+const distFolder = path.join(rootFolder, '../frontend/node_modules/spi-ng2');
 
 /**
  * 1. Delete /dist folder
@@ -79,14 +79,15 @@ gulp.task('rollup', function () {
     .pipe(gulp.dest(distFolder));
 });
 
-/**
- * 6. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
- *    because with don't need individual modules anymore, just the Flat ES module generated
- *    on step 5.
- */
+
 gulp.task('copy:build', function () {
   return gulp.src([`${buildFolder}/**/*`, `!${buildFolder}/**/*.js`])
     .pipe(gulp.dest(distFolder));
+});
+
+gulp.task('copycss', function () {
+    return gulp.src([`${srcFolder}/spi-style.css`])
+        .pipe(gulp.dest(distFolder));
 });
 
 /**
@@ -119,6 +120,7 @@ gulp.task('compile', function () {
     'ngc',
     'rollup',
     'copy:build',
+    'copycss',
     'copy:manifest',
     'clean:build',
     'clean:tmp',

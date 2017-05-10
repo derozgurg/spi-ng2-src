@@ -5,12 +5,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'spi-loading',
-  template: `<h1>Spi Loading</h1>`
+    styleUrls: ['spi-style.css'],
+    selector: 'spi-loading',
+    template: `<h1>Spi Loading</h1>`
 })
 export class SpiLoadingComponent {
 
-  constructor() {
-  }
+    constructor() {
+    }
 
 }
